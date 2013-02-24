@@ -6,6 +6,7 @@ License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 # Source0-md5:	d0879152588a500c662d6db9b88db2c4
+Patch0:		use-libwnck.patch
 URL:		http://mate-desktop.org/
 BuildRequires:	dbus-glib-devel
 BuildRequires:	desktop-file-utils
@@ -14,9 +15,9 @@ BuildRequires:	glibmm-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtkmm-devel
 BuildRequires:	libgtop-devel
-BuildRequires:	libmatewnck-devel
 BuildRequires:	librsvg-devel
 BuildRequires:	libselinux-devel
+BuildRequires:	libwnck2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	mate-common
 BuildRequires:	mate-doc-utils
@@ -39,6 +40,7 @@ available resources such as CPU and memory.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 NOCONFIGURE=1 ./autogen.sh
