@@ -1,18 +1,20 @@
 Summary:	Process and resource monitor
 Name:		mate-system-monitor
 Version:	1.5.1
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
 URL:		http://mate-desktop.org/
 BuildRequires:	dbus-glib-devel
 BuildRequires:	desktop-file-utils
+BuildRequires:	docbook-dtd412-xml
+BuildRequires:	glibmm-devel
 BuildRequires:	gtk+2-devel
-#BuildRequires:	gtkmm24-devel
-#BuildRequires:	libgtop2-devel
+BuildRequires:	gtkmm-devel
+BuildRequires:	libgtop-devel
 BuildRequires:	libmatewnck-devel
-#BuildRequires:	librsvg2-devel
+BuildRequires:	librsvg-devel
 BuildRequires:	libselinux-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	mate-common
@@ -20,7 +22,6 @@ BuildRequires:	mate-doc-utils
 BuildRequires:	mate-icon-theme-devel
 BuildRequires:	pango-devel
 BuildRequires:	pcre-devel
-BuildRequires:	rarian-compat
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	startup-notification-devel
@@ -31,9 +32,9 @@ Requires:	mate-desktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-%{name} allows to graphically view and manipulate the running
-processes on your system. It also provides an overview of available
-resources such as CPU and memory.
+mate-system-monitor allows to graphically view and manipulate the
+running processes on your system. It also provides an overview of
+available resources such as CPU and memory.
 
 %prep
 %setup -q
