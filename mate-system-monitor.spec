@@ -5,6 +5,7 @@ Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
+# Source0-md5:	d0879152588a500c662d6db9b88db2c4
 URL:		http://mate-desktop.org/
 BuildRequires:	dbus-glib-devel
 BuildRequires:	desktop-file-utils
