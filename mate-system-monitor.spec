@@ -1,11 +1,11 @@
 Summary:	Process and resource monitor
 Name:		mate-system-monitor
-Version:	1.5.1
+Version:	1.6.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.5/%{name}-%{version}.tar.xz
-# Source0-md5:	d0879152588a500c662d6db9b88db2c4
+Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
+# Source0-md5:	14960b468246338f20ebe1401b2bac96
 Patch0:		use-libwnck.patch
 URL:		http://mate-desktop.org/
 BuildRequires:	dbus-glib-devel
