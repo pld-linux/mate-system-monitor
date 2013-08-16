@@ -1,13 +1,15 @@
 Summary:	Process and resource monitor
 Name:		mate-system-monitor
-Version:	1.6.0
+Version:	1.6.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.6/%{name}-%{version}.tar.xz
-# Source0-md5:	14960b468246338f20ebe1401b2bac96
+# Source0-md5:	c2fc9d21ad18c67f6517434d22e31bf3
 Patch0:		use-libwnck.patch
 URL:		http://mate-desktop.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dbus-glib-devel
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
@@ -17,6 +19,7 @@ BuildRequires:	gtkmm-devel
 BuildRequires:	libgtop-devel
 BuildRequires:	librsvg-devel
 BuildRequires:	libselinux-devel
+BuildRequires:	libtool
 BuildRequires:	libwnck2-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	mate-common
@@ -43,8 +46,13 @@ available resources such as CPU and memory.
 %patch0 -p1
 
 %build
-NOCONFIGURE=1 ./autogen.sh
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
+	--disable-silent-rules \
 	--disable-static \
 	--disable-scrollkeeper \
 	--enable-compile-warnings=minimum
@@ -81,6 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/mate-system-monitor.1*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.mate.system-monitor.*.xml
