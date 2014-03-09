@@ -25,7 +25,6 @@ BuildRequires:	libtool >= 1:1.4.3
 BuildRequires:	libwnck2-devel >= 2.5.0
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	mate-common
-BuildRequires:	mate-doc-utils
 BuildRequires:	mate-icon-theme-devel >= 1.1.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.36
@@ -33,6 +32,7 @@ BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	startup-notification-devel
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires:	glib2 >= 1:2.28.0
 Requires:	glibmm >= 2.26.0
 Requires:	gtk+2 >= 2:2.20.0
