@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	gtk3		# use GTK+ 3.x instead of 2.x
+
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
@@ -16,13 +20,16 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel >= 0.10.40
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	glibmm-devel >= 2.26.0
-BuildRequires:	gtk+2-devel >= 2:2.20.0
-BuildRequires:	gtkmm-devel >= 2.22
+%{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.20.0}
+%{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
+%{!?with_gtk3:BuildRequires:	gtkmm-devel >= 2.22}
+%{?with_gtk3:BuildRequires:	gtkmm3-devel >= 3.0.0}
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libgtop-devel >= 1:2.23.1
 BuildRequires:	librsvg-devel >= 2.12
 BuildRequires:	libtool >= 1:1.4.3
-BuildRequires:	libwnck2-devel >= 2.5.0
+%{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
+%{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.5.0}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	mate-common
 BuildRequires:	mate-icon-theme-devel >= 1.1.0
@@ -35,11 +42,14 @@ BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires:	glib2 >= 1:2.28.0
 Requires:	glibmm >= 2.26.0
-Requires:	gtk+2 >= 2:2.20.0
-Requires:	gtkmm >= 2.22
+%{!?with_gtk3:Requires:	gtk+2 >= 2:2.20.0}
+%{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
+%{!?with_gtk3:Requires:	gtkmm >= 2.22}
+%{?with_gtk3:Requires:	gtkmm3 >= 3.0.0}
 Requires:	libgtop >= 1:2.23.1
 Requires:	librsvg >= 2.12
-Requires:	libwnck2 >= 2.5.0
+%{?with_gtk3:Requires:	libwnck >= 3.0.0}
+%{!?with_gtk3:Requires:	libwnck2 >= 2.5.0}
 Requires:	mate-desktop
 Requires:	mate-icon-theme >= 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -64,10 +74,10 @@ zasobów, takich jak procesor i pamięć.
 %{__autoheader}
 %{__automake}
 %configure \
-	--disable-scrollkeeper \
 	--disable-silent-rules \
 	--disable-static \
-	--enable-compile-warnings=minimum
+	--enable-compile-warnings=minimum \
+	%{?with_gtk3:--with-gtk=3.0}
 
 %{__make}
 
@@ -79,7 +89,8 @@ rm -rf $RPM_BUILD_ROOT
 # mate < 1.5 did not exist in pld, avoid dependency on mate-conf
 %{__rm} $RPM_BUILD_ROOT%{_datadir}/MateConf/gsettings/%{name}.convert
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{cmn,nah}
+# not supported by glibc (as of 2.19-3)
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/nah
 
 desktop-file-install \
 	--delete-original \
@@ -88,7 +99,7 @@ desktop-file-install \
 	--dir $RPM_BUILD_ROOT%{_desktopdir} \
 	$RPM_BUILD_ROOT%{_desktopdir}/%{name}.desktop
 
-%find_lang %{name} --with-mate --with-omf
+%find_lang %{name} --with-mate
 
 %clean
 rm -rf $RPM_BUILD_ROOT
