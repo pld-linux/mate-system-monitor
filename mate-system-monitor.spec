@@ -17,7 +17,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-devel >= 0.10.40
+BuildRequires:	gettext-tools >= 0.10.40
 BuildRequires:	glib2-devel >= 1:2.28.0
 BuildRequires:	glibmm-devel >= 2.26.0
 %{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.20.0}
