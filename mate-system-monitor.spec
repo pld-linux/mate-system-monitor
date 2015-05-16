@@ -5,29 +5,29 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.8.0
-Release:	3
+Version:	1.10.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.8/%{name}-%{version}.tar.xz
-# Source0-md5:	d6b10ecda2d1d5f294bb54626d72f321
+Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
+# Source0-md5:	5b6bd2adf18875557d9c79335bc58d0a
 URL:		http://mate-desktop.org/
-BuildRequires:	autoconf >= 2.52
-BuildRequires:	automake >= 1:1.9
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.11
 BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.28.0
+BuildRequires:	glib2-devel >= 1:2.36.0
 BuildRequires:	glibmm-devel >= 2.26.0
 %{!?with_gtk3:BuildRequires:	gtk+2-devel >= 2:2.20.0}
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	gtkmm-devel >= 2.22}
 %{?with_gtk3:BuildRequires:	gtkmm3-devel >= 3.0.0}
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	intltool >= 0.41.0
 BuildRequires:	libgtop-devel >= 1:2.23.1
-BuildRequires:	librsvg-devel >= 2.12
-BuildRequires:	libtool >= 1:1.4.3
+BuildRequires:	librsvg-devel >= 2.35
+BuildRequires:	libtool >= 2:2.2
 %{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.5.0}
 BuildRequires:	libxml2-devel >= 2.0
@@ -37,17 +37,18 @@ BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	startup-notification-devel
+BuildRequires:	systemd-devel >= 44
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires:	glib2 >= 1:2.28.0
+Requires:	glib2 >= 1:2.36.0
 Requires:	glibmm >= 2.26.0
 %{!?with_gtk3:Requires:	gtk+2 >= 2:2.20.0}
 %{?with_gtk3:Requires:	gtk+3 >= 3.0.0}
 %{!?with_gtk3:Requires:	gtkmm >= 2.22}
 %{?with_gtk3:Requires:	gtkmm3 >= 3.0.0}
 Requires:	libgtop >= 1:2.23.1
-Requires:	librsvg >= 2.12
+Requires:	librsvg >= 2.35
 %{?with_gtk3:Requires:	libwnck >= 3.0.0}
 %{!?with_gtk3:Requires:	libwnck2 >= 2.5.0}
 Requires:	mate-desktop
@@ -117,4 +118,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/mate-system-monitor.1*
 %{_desktopdir}/%{name}.desktop
 %{_pixmapsdir}/%{name}
+%{_datadir}/appdata/mate-system-monitor.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.mate.system-monitor.*.xml
