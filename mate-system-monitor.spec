@@ -5,12 +5,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.10.1
+Version:	1.12.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.10/%{name}-%{version}.tar.xz
-# Source0-md5:	bf2335591e9810b1c8cad162cde8d3ee
+Source0:	http://pub.mate-desktop.org/releases/1.12/%{name}-%{version}.tar.xz
+# Source0-md5:	632af25880e356f41094f5268f30be14
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -24,7 +24,7 @@ BuildRequires:	glibmm-devel >= 2.26.0
 %{?with_gtk3:BuildRequires:	gtk+3-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	gtkmm-devel >= 2.22}
 %{?with_gtk3:BuildRequires:	gtkmm3-devel >= 3.0.0}
-BuildRequires:	intltool >= 0.41.0
+BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgtop-devel >= 1:2.23.1
 BuildRequires:	librsvg-devel >= 2.35
 BuildRequires:	libtool >= 2:2.2
@@ -32,7 +32,6 @@ BuildRequires:	libtool >= 2:2.2
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.5.0}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	mate-common
-BuildRequires:	mate-icon-theme-devel >= 1.1.0
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	rpmbuild(macros) >= 1.311
@@ -52,7 +51,6 @@ Requires:	librsvg >= 2.35
 %{?with_gtk3:Requires:	libwnck >= 3.0.0}
 %{!?with_gtk3:Requires:	libwnck2 >= 2.5.0}
 Requires:	mate-desktop
-Requires:	mate-icon-theme >= 1.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
