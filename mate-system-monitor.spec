@@ -27,6 +27,7 @@ BuildRequires:	glibmm-devel >= 2.26.0
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgtop-devel >= 1:2.23.1
 BuildRequires:	librsvg-devel >= 2.35
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2
 %{?with_gtk3:BuildRequires:	libwnck-devel >= 3.0.0}
 %{!?with_gtk3:BuildRequires:	libwnck2-devel >= 2.5.0}
