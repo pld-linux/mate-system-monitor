@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.14.0
+Version:	1.14.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.14/%{name}-%{version}.tar.xz
-# Source0-md5:	a76a853a473fcffe32bedd401d61738a
+# Source0-md5:	296356b0d04dbb40b99ab627ced5a2b3
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -78,6 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 # not supported by glibc (as of 2.19-3)
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/nah
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/jv
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,pms}
 
 desktop-file-install \
 	--delete-original \
