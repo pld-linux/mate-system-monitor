@@ -75,10 +75,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# not supported by glibc (as of 2.19-3)
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/nah
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/jv
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,pms}
+# not supported by glibc (as of 2.24-1)
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,jv,nah,pms}
 
 desktop-file-install \
 	--delete-original \
