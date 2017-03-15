@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.16.0
+Version:	1.18.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.16/%{name}-%{version}.tar.xz
-# Source0-md5:	bf293a874d01be2c67dc54c9e477c406
+Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
+# Source0-md5:	387c84dbf751bd292f2c04d3d98bd335
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # not supported by glibc (as of 2.24-1)
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,jv,nah,pms}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{frp,ku_IQ,jv,nah,pms}
 
 desktop-file-install \
 	--delete-original \
@@ -105,3 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/%{name}
 %{_datadir}/appdata/mate-system-monitor.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.mate.system-monitor.*.xml
+%{_datadir}/polkit-1/actions/org.mate.mate-system-monitor.policy
+%dir %{_libdir}/%{name}
+%attr(755,root,root) %{_libdir}/%{name}/msm-kill
+%attr(755,root,root) %{_libdir}/%{name}/msm-renice
