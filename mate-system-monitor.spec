@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.18.0
-Release:	2
+Version:	1.18.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	387c84dbf751bd292f2c04d3d98bd335
+# Source0-md5:	16cd6a8ffb4212f735ca9b229ce20324
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
