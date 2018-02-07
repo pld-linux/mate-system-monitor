@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.18.1
+Version:	1.20.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.18/%{name}-%{version}.tar.xz
-# Source0-md5:	16cd6a8ffb4212f735ca9b229ce20324
+Source0:	http://pub.mate-desktop.org/releases/1.20/%{name}-%{version}.tar.xz
+# Source0-md5:	0c324da3bac245010712c5e02e52e2e3
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -14,9 +14,9 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.36.0
+BuildRequires:	glib2-devel >= 1:2.50.0
 BuildRequires:	glibmm-devel >= 2.26.0
-BuildRequires:	gtk+3-devel >= 3.14.0
+BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.8.1
 BuildRequires:	intltool >= 0.50.1
 BuildRequires:	libgtop-devel >= 1:2.23.1
@@ -34,9 +34,9 @@ BuildRequires:	systemd-devel >= 44
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires:	glib2 >= 1:2.36.0
+Requires:	glib2 >= 1:2.50.0
 Requires:	glibmm >= 2.26.0
-Requires:	gtk+3 >= 3.14.0
+Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.8.1
 Requires:	libgtop >= 1:2.23.1
 Requires:	librsvg >= 2.35
@@ -106,6 +106,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/appdata/mate-system-monitor.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.mate.system-monitor.*.xml
 %{_datadir}/polkit-1/actions/org.mate.mate-system-monitor.policy
-%dir %{_libdir}/%{name}
-%attr(755,root,root) %{_libdir}/%{name}/msm-kill
-%attr(755,root,root) %{_libdir}/%{name}/msm-renice
+%dir %{_libexecdir}/%{name}
+%attr(755,root,root) %{_libexecdir}/%{name}/msm-kill
+%attr(755,root,root) %{_libexecdir}/%{name}/msm-renice
