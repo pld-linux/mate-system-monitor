@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.22.2
+Version:	1.24.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	http://pub.mate-desktop.org/releases/1.22/%{name}-%{version}.tar.xz
-# Source0-md5:	5a06ec79c9da6d2bb8e89a6dd389174c
+Source0:	http://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
+# Source0-md5:	d2e99e476f8610632efe5f3b68cdc9ed
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -14,12 +14,11 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.50.0
+BuildRequires:	glib2-devel >= 1:2.56.0
 BuildRequires:	glibmm-devel >= 2.26.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.8.1
-BuildRequires:	intltool >= 0.50.1
-BuildRequires:	libgtop-devel >= 1:2.23.1
+BuildRequires:	libgtop-devel >= 1:2.37.2
 BuildRequires:	librsvg-devel >= 2.35
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2
@@ -34,11 +33,11 @@ BuildRequires:	systemd-devel >= 44
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires:	glib2 >= 1:2.50.0
+Requires:	glib2 >= 1:2.56.0
 Requires:	glibmm >= 2.26.0
 Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.8.1
-Requires:	libgtop >= 1:2.23.1
+Requires:	libgtop >= 1:2.37.2
 Requires:	librsvg >= 2.35
 Requires:	libwnck >= 3.0.0
 Requires:	mate-desktop
@@ -76,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # not supported by glibc (as of 2.24-1)
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,ie,jv,ku_IQ,nah,pms,ur_PK}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{es_ES,frp,ie,jv,ku_IQ,nah,pms}
 %{__rm} -r $RPM_BUILD_ROOT%{_datadir}/help/{frp,ie,ku_IQ,nah}
 
 desktop-file-install \
