@@ -1,12 +1,12 @@
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.24.2
+Version:	1.26.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://pub.mate-desktop.org/releases/1.24/%{name}-%{version}.tar.xz
-# Source0-md5:	e7bc972be580afe6d1d10d6844b01814
+Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
+# Source0-md5:	4fcefe78e4b0583420f611ac210d2d7a
 URL:		http://mate-desktop.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -14,7 +14,7 @@ BuildRequires:	dbus-glib-devel >= 0.70
 BuildRequires:	desktop-file-utils
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-tools >= 0.10.40
-BuildRequires:	glib2-devel >= 1:2.56.0
+BuildRequires:	glib2-devel >= 1:2.68.0
 BuildRequires:	glibmm-devel >= 2.26.0
 BuildRequires:	gtk+3-devel >= 3.22.0
 BuildRequires:	gtkmm3-devel >= 3.8.1
@@ -33,7 +33,7 @@ BuildRequires:	systemd-devel >= 44
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
-Requires:	glib2 >= 1:2.56.0
+Requires:	glib2 >= 1:2.68.0
 Requires:	glibmm >= 2.26.0
 Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.8.1
