@@ -34,6 +34,7 @@ BuildRequires:	systemd-devel >= 44
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	yelp-tools
+Requires(post,postun):	desktop-file-utils
 Requires:	glib2 >= 1:2.68.0
 Requires:	glibmm >= 2.26.0
 Requires:	gtk+3 >= 3.22.0
@@ -93,9 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
+%update_desktop_database_post
 
 %postun
 %glib_compile_schemas
+%update_desktop_database_postun
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
