@@ -26,6 +26,7 @@ BuildRequires:	libwnck-devel >= 3.0.0
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	polkit-devel
 BuildRequires:	rpmbuild(find_lang) >= 1.36
 BuildRequires:	rpmbuild(macros) >= 1.592
 BuildRequires:	startup-notification-devel
