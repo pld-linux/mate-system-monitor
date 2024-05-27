@@ -1,12 +1,16 @@
+#
+# Conditional build:
+%bcond_with	wnck	# wnck support
+
 Summary:	Process and resource monitor for MATE desktop
 Summary(pl.UTF-8):	Monitor procesów w zasobów dla środowiska MATE
 Name:		mate-system-monitor
-Version:	1.26.3
+Version:	1.28.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications
-Source0:	https://pub.mate-desktop.org/releases/1.26/%{name}-%{version}.tar.xz
-# Source0-md5:	f5f28aa48ae3bdf4ab1a05bfed31c880
+Source0:	https://pub.mate-desktop.org/releases/1.28/%{name}-%{version}.tar.xz
+# Source0-md5:	72d44cc3c9f3d9aa464d4dcd92f9302f
 URL:		https://wiki.mate-desktop.org/mate-desktop/applications/mate-system-monitor/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
@@ -22,7 +26,7 @@ BuildRequires:	libgtop-devel >= 1:2.37.2
 BuildRequires:	librsvg-devel >= 2.35
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libtool >= 2:2.2
-BuildRequires:	libwnck-devel >= 3.0.0
+%{?with_wnck:BuildRequires:	libwnck-devel >= 3.0.0}
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig >= 1:0.19
@@ -41,7 +45,7 @@ Requires:	gtk+3 >= 3.22.0
 Requires:	gtkmm3 >= 3.8.1
 Requires:	libgtop >= 1:2.37.2
 Requires:	librsvg >= 2.35
-Requires:	libwnck >= 3.0.0
+%{?with_wnck:Requires:	libwnck >= 3.0.0}
 Requires:	mate-desktop
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -67,7 +71,8 @@ zasobów, takich jak procesor i pamięć.
 %configure \
 	--disable-silent-rules \
 	--disable-static \
-	--enable-compile-warnings=minimum
+	--enable-compile-warnings=minimum \
+	%{?with_wnck:--enable-wnck}
 
 %{__make}
 
